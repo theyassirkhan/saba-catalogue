@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABA COLLECTIONS — Get Our Latest Catalogue</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Jost:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ivory:#F4EFE6; --ivory-soft:#D9D1C4; --gold:#C9A97C; --maroon:#39161D; --maroon-2:#2B0F15;
+}
+html,body{overflow-x:hidden}
+body{font-family:'Jost',system-ui,sans-serif;color:var(--ivory);background:#1a0a0e;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+/* ---- fixed cinematic background ---- */
+#bgvid{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+#overlay{position:fixed;inset:0;z-index:-1;background:
+  radial-gradient(120% 80% at 50% 0%, rgba(43,15,21,.36), rgba(20,8,11,.58) 70%),
+  linear-gradient(180deg, rgba(20,8,11,.64) 0%, rgba(26,10,14,.42) 32%, rgba(26,10,14,.44) 68%, rgba(20,8,11,.68) 100%)}
+.wrap{position:relative;max-width:480px;margin:0 auto;padding:0 22px}
+.serifhead{font-family:'Cormorant Garamond',Georgia,serif}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);text-align:center}
+header{padding:30px 0 6px;text-align:center}
+header .mark{display:block;width:62px;height:auto;margin:0 auto 12px;filter:drop-shadow(0 3px 12px rgba(0,0,0,.45))}
+header .logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(23px,6.6vw,32px);letter-spacing:.08em;color:var(--ivory);white-space:nowrap}
+header .tag{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory-soft);margin-top:6px;opacity:.9}
+.hero{padding:30px 0 8px;text-align:center;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,8.6vw,42px);line-height:1.12;color:var(--ivory);margin-top:16px;text-wrap:balance;overflow-wrap:break-word}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{color:var(--ivory-soft);font-size:15px;line-height:1.6;margin:18px auto 0;max-width:400px}
+.proof{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.proof .prow{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.proof .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.proof .ptxt,.proof .pcount{color:var(--ivory);font-size:13px;letter-spacing:.02em}
+.proof b{color:var(--gold);font-weight:600}
+/* ---- frosted form card ---- */
+.card{background:rgba(250,248,244,.94);border:1px solid rgba(255,255,255,.5);border-radius:22px;padding:28px 24px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6);margin-top:32px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.card h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(28px,7.8vw,34px);line-height:1.08;color:var(--maroon);text-wrap:balance;position:relative}
+.card h2::after{content:"";display:block;width:46px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),#EAD3A6);margin-top:12px}
+.card .csub{color:#5D534E;font-size:14px;line-height:1.5;margin-top:6px}
+label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6b615b;margin:18px 0 6px}
+.fieldbox{display:flex;align-items:center;border:1px solid #D3CDBD;border-radius:12px;background:#fff;overflow:hidden}
+.fieldbox:focus-within{border-color:#82454F;box-shadow:0 0 0 3px rgba(130,69,79,.15)}
+.prefix{padding:0 12px;color:#4a423d;font-size:15px;border-right:1px solid #E2DED3;align-self:stretch;display:flex;align-items:center;background:#F6F4EF;white-space:nowrap}
+.ccsel{flex:none;width:118px;border:0;outline:0;background:#F6F4EF;color:#3a332e;font-size:14px;font-family:inherit;padding:0 6px 0 10px;border-right:1px solid #E2DED3;align-self:stretch;cursor:pointer}
+.ccsel:focus{box-shadow:inset 0 0 0 2px rgba(130,69,79,.25)}
+input{flex:1;min-width:0;border:0;outline:0;padding:13px 14px;font-size:16px;color:#2b0f15;font-family:inherit;background:transparent}
+input::placeholder{color:#b7ada4}
+button{width:100%;margin-top:22px;padding:16px;border:0;border-radius:12px;background:var(--maroon);color:var(--ivory);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:9px}
+button .wa{width:19px;height:19px;flex:none}
+button:hover{background:var(--maroon-2)}button:active{transform:scale(.99)}button:disabled{opacity:.6;cursor:not-allowed}
+.err{color:#b3261e;font-size:13px;margin-top:10px;min-height:16px;text-align:center}
+.note{text-align:center;font-size:11px;color:#8a8079;margin-top:14px;line-height:1.5}
+/* ---- sections over video ---- */
+section.blk{margin-top:48px;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+.blk h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(27px,7.6vw,32px);color:var(--ivory);text-align:center;text-wrap:balance}
+.blk h3::after{content:"";display:block;width:46px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),#EAD3A6);margin:12px auto 0}
+.steps{margin-top:26px;display:flex;flex-direction:column;gap:28px;text-align:center}
+.steps .n{font-family:'Cormorant Garamond',serif;font-size:46px;color:var(--gold);line-height:1}
+.steps .st{font-size:17px;font-weight:500;color:var(--ivory);margin-top:4px}
+.steps .sd{font-size:13px;color:var(--ivory-soft);line-height:1.55;margin-top:6px;max-width:320px;margin-left:auto;margin-right:auto}
+.feat{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.fcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ficon{width:38px;height:38px;border-radius:10px;background:rgba(201,169,124,.18);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.ficon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.fcard h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--ivory);margin-top:12px}
+.fcard p{font-size:13px;color:var(--ivory-soft);line-height:1.5;margin-top:5px}
+.trust{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.trow{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.trow svg{width:18px;height:18px;fill:none;stroke:var(--gold);stroke-width:2;flex:none}
+.trow span{font-size:13px;font-weight:500;color:var(--ivory)}
+footer{margin-top:48px;border-top:1px solid rgba(255,255,255,.14);padding:34px 0 42px;text-align:center;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+footer .logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;letter-spacing:.1em;color:var(--ivory)}
+footer .tag{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory-soft);margin-top:4px}
+footer .cats{font-size:13px;color:var(--ivory-soft);margin-top:14px}
+footer .cp{font-size:11px;color:rgba(217,209,196,.6);margin-top:12px}
+.hidden{display:none}
+.success{text-align:center;padding:26px 0}
+.success .tick{width:56px;height:56px;border-radius:50%;background:var(--maroon);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.success .tick svg{width:28px;height:28px;stroke:var(--ivory);fill:none;stroke-width:2.5}
+.success h2{font-family:'Cormorant Garamond',serif;color:var(--maroon);font-size:24px}
+.success p{color:#5D534E;font-size:14px;margin-top:8px}
+@media (prefers-reduced-motion: reduce){#bgvid{display:none}}
+/* ---- entrance choreography ---- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+header .markwrap,header .logo,header .tag,.hero .eyebrow,.hero h1,.hero p,.proof,.card{animation:fadeUp .85s cubic-bezier(.16,1,.3,1) both}
+header .logo{animation-delay:.07s}
+header .tag{animation-delay:.14s}
+.hero .eyebrow{animation-delay:.22s}
+.hero h1{animation-delay:.30s}
+.hero p{animation-delay:.40s}
+.proof{animation-delay:.50s}
+.card{animation-delay:.58s}
+/* ---- gold shimmer: "Modest Fashion" ---- */
+.hero h1 em{background:linear-gradient(100deg,var(--gold) 34%,#F7EBCC 50%,var(--gold) 66%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:220% auto;animation:shine 2.6s ease-in-out 1s 1 both}
+@keyframes shine{from{background-position:190% center}to{background-position:-30% center}}
+/* ---- gold shimmer: SC monogram ---- */
+header .markwrap{position:relative;display:inline-block;line-height:0}
+header .markwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 38%,rgba(247,235,204,.72) 50%,transparent 62%);background-size:250% 100%;background-position:185% 0;-webkit-mask:url("logo-clean.png") center/contain no-repeat;mask:url("logo-clean.png") center/contain no-repeat;animation:sweepbg 1.9s ease-in-out 1.2s 1 both;pointer-events:none}
+@keyframes sweepbg{to{background-position:-85% 0}}
+/* ---- (islamic pattern removed) ---- */
+/* ---- testimonials ---- */
+.tcards{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.tcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tcard .tstars{color:var(--gold);letter-spacing:2px;font-size:13px}
+.tcard p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.42;color:var(--ivory);margin-top:8px}
+.tcard .tname{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+/* ---- sticky CTA ---- */
+.sticky{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(160%);z-index:60;display:flex;align-items:center;gap:9px;background:var(--maroon);color:var(--ivory);border:1px solid rgba(201,169,124,.45);border-radius:999px;padding:13px 24px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-family:inherit;cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.6);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.sticky.show{transform:translateX(-50%) translateY(0)}
+.sticky svg{width:17px;height:17px;flex:none}
+/* ---- elevated success ---- */
+.success .sbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:14px 26px;border-radius:12px;background:var(--maroon);color:var(--ivory);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.success .sbtn svg{width:18px;height:18px}
+.success .safterrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.success .ssecondary{background:transparent;border:1px solid #D8C7B0;color:#6b3b43;border-radius:10px;padding:10px 16px;font-size:12px;font-weight:600;letter-spacing:.04em;font-family:inherit;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#2B0F15;color:var(--ivory);padding:10px 18px;border-radius:999px;font-size:13px;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion: reduce){header .markwrap,header .logo,header .tag,.hero .eyebrow,.hero h1,.hero p,.proof,.card{animation:none}.hero h1 em{animation:none;-webkit-text-fill-color:var(--gold)}header .markwrap::after{display:none}}
+</style>
+</head>
+<body>
+<video id="bgvid" autoplay muted loop playsinline preload="auto" poster="saba-poster.jpg">
+  <source src="saba-bg-web.mp4" type="video/mp4">
+</video>
+<div id="overlay"></div>
+
+<div class="wrap">
+  <header><span class="markwrap"><img class="mark" src="logo-clean.png" alt="SABA COLLECTIONS monogram"></span><div class="logo">SABA COLLECTIONS</div><div class="tag">Modesty Above All</div></header>
+  <div class="hero">
+    <p class="eyebrow">We Create · You Choose</p>
+    <h1>Discover Timeless <em>Modest Fashion</em></h1>
+    <p>Elegant abayas, qimars and modest wear designed for confidence and grace. Enter your details to receive our latest catalogue and store location instantly.</p>
+    <div class="proof">
+      <div class="prow"><span class="stars">★★★★★</span><span class="ptxt"><b>5.0</b> on Google · 104 reviews</span></div>
+      <div class="pcount">Trusted by <b>3,000+ women</b> across India</div>
+    </div>
+  </div>
+  <div class="card" id="formCard">
+    <div id="formView">
+      <h2>Receive Our Latest Catalogue</h2>
+      <p class="csub">Sent instantly to your WhatsApp — along with our store location and current offers.</p>
+      <label for="name">Full Name</label>
+      <div class="fieldbox"><input id="name" type="text" autocomplete="name" placeholder="e.g. Ayesha Rahman" maxlength="80"></div>
+      <label for="phone">WhatsApp Number</label>
+      <div class="fieldbox"><select id="cc" class="ccsel" aria-label="Country code"></select><input id="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="98765 43210" maxlength="18"></div>
+      <div class="err" id="err"></div>
+      <button id="submit" type="button"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.335 11.949-11.896 0-3.176-1.24-6.165-3.487-8.411"/></svg><span id="btnlabel">Get My Catalogue</span></button>
+      <p class="note">We only use your details to send the catalogue and relevant updates via WhatsApp. No spam, ever.</p>
+    </div>
+    <div id="successView" class="success hidden">
+      <div class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>Check your WhatsApp 🌸</h2>
+      <p>We've opened a chat with your catalogue request ready — just tap <b>Send</b> and we'll share everything.</p>
+      <a id="waBtn" class="sbtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.335 11.949-11.896 0-3.176-1.24-6.165-3.487-8.411"/></svg>Open WhatsApp</a>
+      <div class="safterrow">
+        <a class="ssecondary" href="https://www.instagram.com/sabacollections" target="_blank" rel="noopener">Follow on Instagram</a>
+        <button id="refBtn" class="ssecondary" type="button">Refer a sister</button>
+      </div>
+    </div>
+  </div>
+  <section class="blk"><h3>How it works</h3><div class="steps">
+    <div><div class="n">01</div><div class="st">Enter your details</div><div class="sd">Your name and WhatsApp number — that's all we need.</div></div>
+    <div><div class="n">02</div><div class="st">Tap send on WhatsApp</div><div class="sd">We pre-fill the message for you. One tap and it's on its way.</div></div>
+    <div><div class="n">03</div><div class="st">Receive everything instantly</div><div class="sd">Catalogue, store location, Instagram and current offers — straight to your chat.</div></div>
+  </div></section>
+  <section class="blk">
+    <p class="eyebrow">One message away</p>
+    <h3 style="margin-top:8px">What you'll receive on WhatsApp</h3>
+    <div class="feat">
+      <div class="fcard"><div class="ficon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h4>The Latest Catalogue</h4><p>Our newest abayas, qimars and shrugs — new styles, every colour, with current prices.</p></div>
+      <div class="fcard"><div class="ficon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>Store Location</h4><p>Directions with a Google Maps link, so you can visit us and try everything on in person.</p></div>
+      <div class="fcard"><div class="ficon"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 12 22l-9-9V4a1 1 0 0 1 1-1h9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h4>Current Offers</h4><p>Seasonal offers and special prices, shared with you before anyone else.</p></div>
+      <div class="fcard"><div class="ficon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><h4>Style Inspiration</h4><p>A link to our Instagram lookbook for styling ideas and new arrival previews.</p></div>
+    </div>
+  </section>
+  <section class="blk">
+    <p class="eyebrow">In their words</p>
+    <h3 style="margin-top:8px">Loved by 3,000+ women</h3>
+    <div class="tcards">
+      <div class="tcard"><div class="tstars">★★★★★</div><p>"The fabric quality is stunning and the fit is perfect — I've ordered three abayas now."</p><div class="tname">Fatima R.</div></div>
+      <div class="tcard"><div class="tstars">★★★★★</div><p>"So elegant and comfortable, exactly what I was looking for. Delivery was quick too."</p><div class="tname">Ayesha K.</div></div>
+      <div class="tcard"><div class="tstars">★★★★★</div><p>"Beautiful pieces — I felt truly special wearing them. Highly recommend SABA."</p><div class="tname">Zainab M.</div></div>
+    </div>
+  </section>
+  <section class="blk"><div class="trust">
+    <div class="trow"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1z"/></svg><span>Crafting comfort since 2017</span></div>
+    <div class="trow"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1-4.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg><span>WhatsApp only — no calls, no spam</span></div>
+    <div class="trow"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span>Your details are never shared</span></div>
+    <div class="trow"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Stored securely, opt out anytime</span></div>
+  </div></section>
+  <button id="sticky" class="sticky" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.335 11.949-11.896 0-3.176-1.24-6.165-3.487-8.411"/></svg>Get Catalogue</button>
+  <div id="toast" class="toast"></div>
+  <footer><div class="logo">SABA COLLECTIONS</div><div class="tag">Modesty Above All</div><div class="cats">Abayas · Shrugs · Qimars · Jilbabs</div><div class="cp">© 2026 SABA COLLECTIONS. All rights reserved.</div></footer>
+</div>
+<script>
+  var COUNTRIES=[["India","+91"],["Afghanistan","+93"],["Albania","+355"],["Algeria","+213"],["Andorra","+376"],["Angola","+244"],["Argentina","+54"],["Armenia","+374"],["Australia","+61"],["Austria","+43"],["Azerbaijan","+994"],["Bahrain","+973"],["Bangladesh","+880"],["Belarus","+375"],["Belgium","+32"],["Benin","+229"],["Bhutan","+975"],["Bolivia","+591"],["Bosnia & Herzegovina","+387"],["Botswana","+267"],["Brazil","+55"],["Brunei","+673"],["Bulgaria","+359"],["Burkina Faso","+226"],["Burundi","+257"],["Cambodia","+855"],["Cameroon","+237"],["Canada","+1"],["Chad","+235"],["Chile","+56"],["China","+86"],["Colombia","+57"],["Congo (DRC)","+243"],["Congo (Rep.)","+242"],["Costa Rica","+506"],["Cote d'Ivoire","+225"],["Croatia","+385"],["Cuba","+53"],["Cyprus","+357"],["Czechia","+420"],["Denmark","+45"],["Djibouti","+253"],["Dominican Rep.","+1"],["Ecuador","+593"],["Egypt","+20"],["El Salvador","+503"],["Estonia","+372"],["Ethiopia","+251"],["Fiji","+679"],["Finland","+358"],["France","+33"],["Gabon","+241"],["Gambia","+220"],["Georgia","+995"],["Germany","+49"],["Ghana","+233"],["Greece","+30"],["Guatemala","+502"],["Guinea","+224"],["Guyana","+592"],["Haiti","+509"],["Honduras","+504"],["Hong Kong","+852"],["Hungary","+36"],["Iceland","+354"],["Indonesia","+62"],["Iran","+98"],["Iraq","+964"],["Ireland","+353"],["Israel","+972"],["Italy","+39"],["Jamaica","+1"],["Japan","+81"],["Jordan","+962"],["Kazakhstan","+7"],["Kenya","+254"],["Kuwait","+965"],["Kyrgyzstan","+996"],["Laos","+856"],["Latvia","+371"],["Lebanon","+961"],["Lesotho","+266"],["Liberia","+231"],["Libya","+218"],["Lithuania","+370"],["Luxembourg","+352"],["Macau","+853"],["Madagascar","+261"],["Malawi","+265"],["Malaysia","+60"],["Maldives","+960"],["Mali","+223"],["Malta","+356"],["Mauritania","+222"],["Mauritius","+230"],["Mexico","+52"],["Moldova","+373"],["Monaco","+377"],["Mongolia","+976"],["Montenegro","+382"],["Morocco","+212"],["Mozambique","+258"],["Myanmar","+95"],["Namibia","+264"],["Nepal","+977"],["Netherlands","+31"],["New Zealand","+64"],["Nicaragua","+505"],["Niger","+227"],["Nigeria","+234"],["North Macedonia","+389"],["Norway","+47"],["Oman","+968"],["Pakistan","+92"],["Palestine","+970"],["Panama","+507"],["Papua New Guinea","+675"],["Paraguay","+595"],["Peru","+51"],["Philippines","+63"],["Poland","+48"],["Portugal","+351"],["Qatar","+974"],["Romania","+40"],["Russia","+7"],["Rwanda","+250"],["Saudi Arabia","+966"],["Senegal","+221"],["Serbia","+381"],["Seychelles","+248"],["Sierra Leone","+232"],["Singapore","+65"],["Slovakia","+421"],["Slovenia","+386"],["Somalia","+252"],["South Africa","+27"],["South Korea","+82"],["South Sudan","+211"],["Spain","+34"],["Sri Lanka","+94"],["Sudan","+249"],["Sweden","+46"],["Switzerland","+41"],["Syria","+963"],["Taiwan","+886"],["Tajikistan","+992"],["Tanzania","+255"],["Thailand","+66"],["Togo","+228"],["Trinidad & Tobago","+1"],["Tunisia","+216"],["Turkey","+90"],["Turkmenistan","+993"],["Uganda","+256"],["Ukraine","+380"],["UAE","+971"],["United Kingdom","+44"],["United States","+1"],["Uruguay","+598"],["Uzbekistan","+998"],["Venezuela","+58"],["Vietnam","+84"],["Yemen","+967"],["Zambia","+260"],["Zimbabwe","+263"]];
+  var nm=document.getElementById('name'),ph=document.getElementById('phone'),er=document.getElementById('err'),sb=document.getElementById('submit'),cc=document.getElementById('cc');
+  var BUSINESS='919538721556';
+  COUNTRIES.forEach(function(c){var o=document.createElement('option');o.value=c[1];o.textContent=c[1]+'  '+c[0];cc.appendChild(o);});
+  cc.value='+91';
+  sb.addEventListener('click',function(){
+    var code=cc.value, ccd=code.replace('+','');
+    var n=(nm.value||'').trim();
+    var d=(ph.value||'').replace(/\D/g,'').replace(/^0+/,'');
+    if(n.length<2){er.textContent='Please enter your full name.';nm.focus();return;}
+    if(code==='+91'){
+      if(d.indexOf('91')===0&&d.length>10)d=d.slice(2);
+      if(!/^[6-9]\d{9}$/.test(d)){er.textContent='Enter a valid 10-digit Indian mobile (starts 6-9).';ph.focus();return;}
+    }else{
+      if(d.indexOf(ccd)===0&&d.length-ccd.length>=5)d=d.slice(ccd.length);
+      if(!/^\d{5,14}$/.test(d)){er.textContent='Please enter a valid phone number.';ph.focus();return;}
+    }
+    var e164=code+d;
+    er.textContent='';sb.disabled=true;document.getElementById('btnlabel').textContent='Sending…';
+    document.getElementById('formView').classList.add('hidden');
+    document.getElementById('successView').classList.remove('hidden');
+    var waUrl='https://wa.me/'+BUSINESS+'?text='+encodeURIComponent("Hi, I'm "+n+". I would like to receive the latest catalogue from SABA COLLECTIONS.");
+    document.getElementById('waBtn').setAttribute('href',waUrl);
+    setTimeout(function(){ window.location.href=waUrl; },800);
+  });
+  ph.addEventListener('keydown',function(e){if(e.key==='Enter')sb.click();});
+  nm.addEventListener('keydown',function(e){if(e.key==='Enter')ph.focus();});
+  // sticky CTA reveal + scroll-to-form
+  var sticky=document.getElementById('sticky');
+  sticky.addEventListener('click',function(){document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){nm.focus();},450);});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){sticky.classList.toggle('show',!e.isIntersecting);});},{threshold:0});io.observe(document.getElementById('formCard'));}
+  // refer a sister
+  var ref=document.getElementById('refBtn');
+  if(ref){ref.addEventListener('click',function(){var sd={title:'SABA COLLECTIONS',text:'Get the SABA COLLECTIONS catalogue on WhatsApp 🌸',url:location.href};if(navigator.share){navigator.share(sd).catch(function(){});}else{var t=document.getElementById('toast');if(navigator.clipboard){try{navigator.clipboard.writeText(location.href);}catch(e){}}t.textContent='Link copied — share it with a friend!';t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2200);}});}
+</script>
+</body>
+</html>
