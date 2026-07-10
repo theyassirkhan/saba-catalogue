@@ -47,12 +47,12 @@ label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase
 .ccsel:focus{box-shadow:inset 0 0 0 2px rgba(130,69,79,.25)}
 input{flex:1;min-width:0;border:0;outline:0;padding:13px 14px;font-size:16px;color:#2b0f15;font-family:inherit;background:transparent}
 input::placeholder{color:#b7ada4}
-button{width:100%;margin-top:22px;padding:16px;border:0;border-radius:12px;background:var(--maroon);color:var(--ivory);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:9px}
+button{width:100%;margin-top:14px;padding:16px;border:0;border-radius:12px;background:var(--maroon);color:var(--ivory);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:9px}
 button .wa{width:19px;height:19px;flex:none}
 button:hover{background:var(--maroon-2)}button:active{transform:scale(.99)}button:disabled{opacity:.6;cursor:not-allowed}
 .err{color:#b3261e;font-size:13px;margin-top:10px;min-height:16px;text-align:center}
 .note{text-align:center;font-size:11px;color:#8a8079;margin-top:14px;line-height:1.5}
-.offer{position:relative;overflow:hidden;margin-top:20px;border-radius:14px;padding:12px 15px;display:flex;align-items:flex-start;gap:11px;background:linear-gradient(135deg,#EBD094 0%,#C9A97C 52%,#D8B872 100%);box-shadow:0 8px 22px -8px rgba(201,169,124,.85);animation:offerPulse 2.6s ease-in-out infinite}
+.offer{position:relative;overflow:hidden;margin-top:6px;border-radius:14px;padding:12px 15px;display:flex;align-items:flex-start;gap:11px;background:linear-gradient(135deg,#EBD094 0%,#C9A97C 52%,#D8B872 100%);box-shadow:0 8px 22px -8px rgba(201,169,124,.85);animation:offerPulse 2.6s ease-in-out infinite}
 .offer .gift{font-size:21px;line-height:1.15;flex:none}
 .offer .tag{display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#5A1E27;background:rgba(255,255,255,.42);padding:2px 8px;border-radius:999px;margin-bottom:5px}
 .offer p{margin:0;color:#39161D;font-size:12.5px;line-height:1.45;font-weight:600}
@@ -154,11 +154,11 @@ header .markwrap::after{content:"";position:absolute;inset:0;background:linear-g
       <div class="fieldbox"><input id="name" type="text" autocomplete="name" placeholder="e.g. Ayesha Rahman" maxlength="80"></div>
       <label for="phone">WhatsApp Number</label>
       <div class="fieldbox"><select id="cc" class="ccsel" aria-label="Country code"></select><input id="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="98765 43210" maxlength="18"></div>
+      <div class="err" id="err"></div>
       <div class="offer" role="note" aria-label="First-time customer offer">
         <span class="gift" aria-hidden="true">🎁</span>
         <div><span class="tag">First-time offer</span><p><b>10% OFF</b> your first in-store purchase <b>+ an extra 5% OFF</b> your first customization order.</p></div>
       </div>
-      <div class="err" id="err"></div>
       <button id="submit" type="button"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.335 11.949-11.896 0-3.176-1.24-6.165-3.487-8.411"/></svg><span id="btnlabel">Get My Catalogue</span></button>
       <p class="note">We only use your details to send the catalogue and relevant updates via WhatsApp. No spam, ever.</p>
     </div>
